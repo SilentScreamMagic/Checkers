@@ -16,7 +16,32 @@ public class Grid {
         grid=new Piece[size][size];
 
     }
-
+    private static void bryanSetGrid() {
+		int mid=grid.length/2;
+		int start;
+        for (int i = 0; i < mid-1; i++) {
+        	if(i%2==0){
+        		start =1;
+        	}else {
+        		start=0;
+        	}
+        	for (int j = start; j < grid.length; j=j+2) {
+                    grid[i][j] = new Piece(Piece.Role.R1);
+        	}
+        }
+    
+        for (int i = grid.length-1; i >= mid+1; i--) {
+        	if(i%2==0){
+        		start =1;
+        	}else {
+        		start=0;
+        	}
+        	for (int j = start; j < grid.length; j=j+2) {
+                    grid[i][j] = new Piece(Piece.Role.R2);
+               
+        	}
+        }
+	}
     public void setGrid(){
         int mid=grid.length/2;
 
